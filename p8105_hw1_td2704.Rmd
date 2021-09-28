@@ -63,3 +63,34 @@ equivalence to an actual numeric value (some of the chars like "2" were able
 to convert to numeric 2). 
 
 
+## Problem 2
+
+Installed package in console with 'install.packages("palmerpenguins")'.
+
+```{r}
+
+data("penguins", package = "palmerpenguins")
+
+```
+
+```{r}
+
+penguins
+
+skimr::skim(penguins)
+
+```
+
+```{r}
+
+nrow(penguins)
+ncol(penguins)
+
+mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
+
+```
+
+This is inline `r nrow(penguins)`
+RRemove other stuff above - just use inline code
+Finish description
+Make scatterplot and export
