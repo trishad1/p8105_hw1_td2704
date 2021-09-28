@@ -73,24 +73,37 @@ data("penguins", package = "palmerpenguins")
 
 ```
 
+Here's a short description of the penguins dataset.
+
+The penguins dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns
+with the following `r length(colnames(penguins))` variables: `r colnames(penguins)`. 
+This includes species `r unique(pull(penguins,species))` from islands 
+`r unique(pull(penguins,island))` over the years of `r unique(pull(penguins,year))`.
+The mean flipper length in the data, removing missing data rows, is 
+`r round(mean(pull(penguins,flipper_length_mm),na.rm = TRUE),2)`.
+
+
+Create and export a scatterplot with data from penguins.
+
 ```{r}
 
-penguins
+flipper_vs_bill_plot = 
+  ggplot(penguins, 
+       aes(x = bill_length_mm, y = flipper_length_mm,color=species)) + geom_point()
 
-skimr::skim(penguins)
-
+flipper_vs_bill_plot
 ```
 
 ```{r}
 
-nrow(penguins)
-ncol(penguins)
-
-mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
+ggsave("flipper_vs_bill_plot.pdf", flipper_vs_bill_plot, width = 8, height = 5)
 
 ```
 
-This is inline `r nrow(penguins)`
-RRemove other stuff above - just use inline code
-Finish description
-Make scatterplot and export
+
+
+
+
+
+
+
