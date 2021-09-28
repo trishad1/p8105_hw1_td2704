@@ -38,14 +38,25 @@ mean(pull(df,vec_factor))
 Taking the mean of the random sample and logical vector work, but the character
 and factor vector means don't work.
 
+Now, we can check what 'as.numeric' does.
+
 ```{r, echo=TRUE, results='hide'}
 
 as.numeric(pull(df,vec_logical))
-as.numeric(pull(df,vec_char))
-as.numeric(pull(df,vec_factor))
-
 mean(as.numeric(pull(df,vec_logical)))
+
+```
+
+```{r, echo=TRUE, results='hide'}
+
+as.numeric(pull(df,vec_char))
 mean(as.numeric(pull(df,vec_char)))
+
+```
+
+```{r, echo=TRUE, results='hide'}
+
+as.numeric(pull(df,vec_factor))
 mean(as.numeric(pull(df,vec_factor)))
 
 ```
